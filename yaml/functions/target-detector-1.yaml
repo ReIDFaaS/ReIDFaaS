@@ -22,19 +22,14 @@ spec:
     spec:
       containerConcurrency: 1
       responseStartTimeoutSeconds: 3600
-      schedulerName: gpushare-scheduler
       nodeSelector:
         kubernetes.io/hostname: knode1
       containers:
-        - image: 192.168.10.82:5000/target-detector-gpu:v4.0
+        - image: <image>
           ports:
             - containerPort: 4001
           imagePullPolicy: IfNotPresent
           name: target-detector
-          resources:
-            limits:
-               # GiB
-              ucloud.cn/gpu-mem: "2"
           volumeMounts:
             - mountPath: /home/data/
               name: reid
