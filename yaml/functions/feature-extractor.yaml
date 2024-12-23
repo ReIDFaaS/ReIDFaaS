@@ -18,18 +18,13 @@ spec:
         autoscaling.knative.dev/max-scale: "5"
         autoscaling.knative.dev/scale-down-delay: "40s"
     spec:
-      schedulerName: gpushare-scheduler
       containerConcurrency: 40
       containers:
-        - image: 192.168.10.82:5000/feature-extractor-gpu:v3.0
+        - image: <image>
           ports:
             - containerPort: 6001
           imagePullPolicy: IfNotPresent
           name: feature-extractor
-#          resources:
-#            limits:
-#              # GiB
-#              ucloud.cn/gpu-mem: "1"
           volumeMounts:
             - mountPath: /home/data/
               name: reid
