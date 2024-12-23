@@ -1,0 +1,32 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: move-detector-2
+spec:
+  template:
+    metadata:
+      annotations:
+        # Knative concurrency-based autoscaling (default).
+        autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+        autoscaling.knative.dev/metric: concurrency
+        # Target 10 requests in-flight per pod.
+        autoscaling.knative.dev/target: "1"
+        # Disable scale to zero with a min scale of 1.
+        autoscaling.knative.dev/min-scale: "2"
+        # Limit scaling to 100 pods.
+        autoscaling.knative.dev/max-scale: "2"
+    spec:
+      containerConcurrency: 1
+      nodeSelector:
+        kubernetes.io/hostname: knode2
+      containers:
+        - image: 192.168.10.82:5000/move-detector:v4.0
+          ports:
+            - containerPort: 3001
+          env:
+            - name: url_va
+              value: "http://target-detector-2.default.192.168.10.82.sslip.io/"
+            - name: url_fe
+              value: "http://feature-extractor.default.192.168.10.82.sslip.io/"
+          imagePullPolicy: IfNotPresent
+          name: move-detector

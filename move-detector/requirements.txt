@@ -1,0 +1,4 @@
+Flask==2.2.5
+numpy==1.23.5
+opencv_python==4.9.0.80
+Requests==2.32.3

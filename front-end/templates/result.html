@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Result Images</title>
+<h1>Result Images</h1>
+<div style="display: flex; flex-wrap: wrap;">
+{% for img in images %}
+    <img src="{{ img }}" width="300">
+{% endfor %}
+</div>

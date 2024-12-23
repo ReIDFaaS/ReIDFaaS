@@ -1,0 +1,8 @@
+cython_bbox==0.1.5
+Flask==2.2.5
+lapx==0.5.10.post1
+numpy==1.23.5
+opencv_python==4.9.0.80
+scipy==1.14.1
+torch==2.2.2
+torchvision==0.17.2

@@ -1,0 +1,10 @@
+ai_models
+network_shared
+Set_5
+*.yaml
+*.rar
+*.jpg
+*.eddx
+*.Dockerfile
+yaml
+Set_5*
