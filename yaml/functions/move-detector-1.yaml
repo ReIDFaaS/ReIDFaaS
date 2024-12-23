@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: move-detector-1
+  name: move-detector
 spec:
   template:
     metadata:
@@ -21,16 +21,14 @@ spec:
     spec:
       containerConcurrency: 10
       responseStartTimeoutSeconds: 3600
-      nodeSelector:
-        kubernetes.io/hostname: knode1
       containers:
-        - image: 192.168.10.82:5000/move-detector:v4.0
+        - image: <image>
           ports:
             - containerPort: 3001
           env:
             - name: url_va
-              value: "http://target-detector-1.default.192.168.10.82.sslip.io/"
+              value: "<>"
             - name: url_fe
-              value: "http://feature-extractor.default.192.168.10.82.sslip.io/"
+              value: "<>"
           imagePullPolicy: IfNotPresent
           name: move-detector
