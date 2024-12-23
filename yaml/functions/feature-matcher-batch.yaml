@@ -19,20 +19,15 @@ spec:
 #        autoscaling.knative.dev/window: "120s"
     spec:
       containerConcurrency: 5
-      schedulerName: gpushare-scheduler
       containers:
-        - image: 192.168.10.82:5000/feature-matcher-gpu:batch
+        - image: <image>
           ports:
             - containerPort: 5001
           env:
             - name: url_fe
-              value: "http://feature-extractor.default.192.168.10.82.sslip.io/"
+              value: "<>"
           imagePullPolicy: IfNotPresent
           name: feature-matcher
-#          resources:
-#            limits:
-#              # GiB
-#              ucloud.cn/gpu-mem: "1"
           volumeMounts:
             - mountPath: /home/data/
               name: reid
