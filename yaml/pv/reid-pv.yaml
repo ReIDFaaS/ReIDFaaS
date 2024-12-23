@@ -9,5 +9,5 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    path: /root/pjp/nfs/reid
-    server: 192.168.10.82
+    path: <path>
+    server: <ip>
