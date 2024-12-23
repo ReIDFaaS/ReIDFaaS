@@ -20,3 +20,5 @@ After a successful deployment, binding the move-detector and the camera only req
 
 When a query needs to be performed on the target, it can be accessed directly in the browser through the front-end.
 
+![2](2.png)
+![1](1.png)
