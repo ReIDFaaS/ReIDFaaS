@@ -21,6 +21,8 @@ spec:
     spec:
       containerConcurrency: 10
       responseStartTimeoutSeconds: 3600
+      nodeSelector:
+        kubernetes.io/hostname: knode1
       containers:
         - image: <image>
           ports:
